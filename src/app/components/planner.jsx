@@ -28,7 +28,7 @@ export default function Planner() {
 
   return (
     <>
-      <div className="ml-[5vw] flex h-[90vh] w-[90vw] gap-1">
+      <div className="ml-[15vw] flex h-[90vh] w-[80vw] gap-1">
         <PlannerColumn>
           <QuarterBlock title="FRESH FALL">
             {schedule &&
