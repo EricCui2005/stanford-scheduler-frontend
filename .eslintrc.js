@@ -1,18 +1,20 @@
 module.exports = {
   extends: [
-    'next',
-    'next/core-web-vitals',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended",
   ],
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ["react", "@typescript-eslint"],
   parserOptions: {
     ecmaVersion: 2021,
-    sourceType: 'module',
+    sourceType: "module",
   },
   rules: {
-    // Add your custom ESLint rules here
+    "tailwindcss/classnames-order": "warn",
   },
 };
