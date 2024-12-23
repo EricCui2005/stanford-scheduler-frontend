@@ -1,78 +1,112 @@
 import QuarterBlock from './quarterBlock';
 import PlannerColumn from './plannerColumn';
 import ClassBlock from './classBlock';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Planner() {
+  const [schedule, setSchedule] = useState(null);
+
+  // Fetching user schedule on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await fetch('/api/solve');
         const data = await result.json();
-        console.log(data);
+        setSchedule(data['schedule']);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (schedule) {
+      console.log(schedule['FRESH']);
+    }
+  }, [schedule]);
+
   return (
     <>
       <div className="ml-[5vw] flex h-[90vh] w-[90vw] gap-1">
         <PlannerColumn>
           <QuarterBlock title="FRESH FALL">
-            <ClassBlock code="CS 106B" title="Programming Abstractions" />
-            <ClassBlock code="CS 109" title="Probability for CS" />
+            {schedule &&
+              schedule['FRESH']['FRESH_FALL'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="FRESH WINTER">
-            <ClassBlock code="CS 103" title="Mathematical Foundations of CS" />
-            <ClassBlock code="MATH19" title="Calculus" />
+            {schedule &&
+              schedule['FRESH']['FRESH_WINTER'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="FRESH SPRING">
-            <ClassBlock code="MATH20" title="Calculus" />
-            <ClassBlock code="CS 107" title="Systems" />
+            {schedule &&
+              schedule['FRESH']['FRESH_SPRING'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
         </PlannerColumn>
         <PlannerColumn>
           <QuarterBlock title="SOPH FALL">
-            <ClassBlock code="MATH51" title="Linear Algebra" />
-            <ClassBlock code="MATH21" title="Calculus" />
+            {schedule &&
+              schedule['SOPH']['SOPH_FALL'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="SOPH WINTER">
-            <ClassBlock code="CS 161" title="Algorithms" />
-            <ClassBlock code="CS51" title="Social Good Studio" />
+            {schedule &&
+              schedule['SOPH']['SOPH_WINTER'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="SOPH SPRING">
-            <ClassBlock code="MATH104" title="Linear Algebra II" />
-            <ClassBlock code="CS 107E" title="Systems E" />
+            {schedule &&
+              schedule['SOPH']['SOPH_SPRING'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
         </PlannerColumn>
         <PlannerColumn>
           <QuarterBlock title="JUNIOR FALL">
-            <ClassBlock code="MATH51" title="Linear Algebra" />
-            <ClassBlock code="MATH21" title="Calculus" />
+            {schedule &&
+              schedule['JUNIOR']['JUNIOR_FALL'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="JUNIOR WINTER">
-            <ClassBlock code="CS 161" title="Algorithms" />
-            <ClassBlock code="CS51" title="Social Good Studio" />
+            {schedule &&
+              schedule['JUNIOR']['JUNIOR_WINTER'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="JUNIOR SPRING">
-            <ClassBlock code="MATH104" title="Linear Algebra II" />
-            <ClassBlock code="CS 107E" title="Systems E" />
+            {schedule &&
+              schedule['JUNIOR']['JUNIOR_SPRING'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
         </PlannerColumn>
         <PlannerColumn>
           <QuarterBlock title="SENIOR FALL">
-            <ClassBlock code="MATH51" title="Linear Algebra" />
-            <ClassBlock code="MATH21" title="Calculus" />
+            {schedule &&
+              schedule['SENIOR']['SENIOR_FALL'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="SENIOR WINTER">
-            <ClassBlock code="CS 161" title="Algorithms" />
-            <ClassBlock code="CS51" title="Social Good Studio" />
+            {schedule &&
+              schedule['SENIOR']['SENIOR_WINTER'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
           <QuarterBlock title="SENIOR SPRING">
-            <ClassBlock code="MATH104" title="Linear Algebra II" />
-            <ClassBlock code="CS 107E" title="Systems E" />
+            {schedule &&
+              schedule['SENIOR']['SENIOR_SPRING'].map((course) => (
+                <ClassBlock key={course} code={course} title={course} />
+              ))}
           </QuarterBlock>
         </PlannerColumn>
       </div>
