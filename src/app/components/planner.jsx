@@ -1,8 +1,21 @@
 import QuarterBlock from './quarterBlock';
 import PlannerColumn from './plannerColumn';
 import ClassBlock from './classBlock';
+import { useEffect } from 'react';
 
 export default function Planner() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await fetch('/api/solve');
+        const data = await result.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="ml-[5vw] flex h-[90vh] w-[90vw] gap-1">
