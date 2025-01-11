@@ -20,14 +20,9 @@ export default function Planner() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (schedule) {
-      console.log(schedule['FRESH']);
-    }
-  }, [schedule]);
-
   return (
     <>
+      <button className="btn">Hello</button>
       <div className="ml-[15vw] flex h-[90vh] w-[80vw] gap-1">
         <PlannerColumn>
           <QuarterBlock title="FRESH FALL">
