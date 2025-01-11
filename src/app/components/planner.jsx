@@ -6,40 +6,47 @@ import { useState, useEffect } from 'react';
 export default function Planner() {
   const [schedule, setSchedule] = useState(null);
 
-  // Fetching user schedule on mount
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await fetch('/api/solve');
-        const data = await result.json();
-        setSchedule(data['schedule']);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
+  // Function to solve and fetch schedule data
+  const fetchData = async () => {
+    try {
+      const result = await fetch('/api/solve');
+      const data = await result.json();
+      setSchedule(data['schedule']);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // IDs of droppable and draggable components
+  const droppableIds = ['FRESH_FALL', 'FRESH_WINTER', 'FRESH_SPRING'];
+  const draggableIds = ['CS106B', 'CS103', 'CS107', 'CS109'];
+
+  const findSourceContainer = (itemId) => {
+    const result = Object.keys();
+  };
 
   return (
     <>
-      <button className="btn">Hello</button>
+      <button className="btn" onClick={fetchData}>
+        Fetch
+      </button>
       <div className="ml-[15vw] flex h-[90vh] w-[80vw] gap-1">
         <PlannerColumn>
           <QuarterBlock title="FRESH FALL">
             {schedule &&
-              schedule['FRESH']['FRESH_FALL'].map((completeTitle) => (
+              schedule['FRESH_FALL'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="FRESH WINTER">
             {schedule &&
-              schedule['FRESH']['FRESH_WINTER'].map((completeTitle) => (
+              schedule['FRESH_WINTER'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="FRESH SPRING">
             {schedule &&
-              schedule['FRESH']['FRESH_SPRING'].map((completeTitle) => (
+              schedule['FRESH_SPRING'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
@@ -47,19 +54,19 @@ export default function Planner() {
         <PlannerColumn>
           <QuarterBlock title="SOPH FALL">
             {schedule &&
-              schedule['SOPH']['SOPH_FALL'].map((completeTitle) => (
+              schedule['SOPH_FALL'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="SOPH WINTER">
             {schedule &&
-              schedule['SOPH']['SOPH_WINTER'].map((completeTitle) => (
+              schedule['SOPH_WINTER'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="SOPH SPRING">
             {schedule &&
-              schedule['SOPH']['SOPH_SPRING'].map((completeTitle) => (
+              schedule['SOPH_SPRING'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
@@ -67,19 +74,19 @@ export default function Planner() {
         <PlannerColumn>
           <QuarterBlock title="JUNIOR FALL">
             {schedule &&
-              schedule['JUNIOR']['JUNIOR_FALL'].map((completeTitle) => (
+              schedule['JUNIOR_FALL'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="JUNIOR WINTER">
             {schedule &&
-              schedule['JUNIOR']['JUNIOR_WINTER'].map((completeTitle) => (
+              schedule['JUNIOR_WINTER'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="JUNIOR SPRING">
             {schedule &&
-              schedule['JUNIOR']['JUNIOR_SPRING'].map((completeTitle) => (
+              schedule['JUNIOR_SPRING'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
@@ -87,19 +94,19 @@ export default function Planner() {
         <PlannerColumn>
           <QuarterBlock title="SENIOR FALL">
             {schedule &&
-              schedule['SENIOR']['SENIOR_FALL'].map((completeTitle) => (
+              schedule['SENIOR_FALL'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="SENIOR WINTER">
             {schedule &&
-              schedule['SENIOR']['SENIOR_WINTER'].map((completeTitle) => (
+              schedule['SENIOR_WINTER'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
           <QuarterBlock title="SENIOR SPRING">
             {schedule &&
-              schedule['SENIOR']['SENIOR_SPRING'].map((completeTitle) => (
+              schedule['SENIOR_SPRING'].map((completeTitle) => (
                 <ClassBlock key={completeTitle} completeTitle={completeTitle} />
               ))}
           </QuarterBlock>
