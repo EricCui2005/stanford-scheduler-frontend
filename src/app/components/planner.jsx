@@ -150,6 +150,13 @@ export default function Planner() {
                   schedule['FRESH_SPRING'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['FRESH_SPRING'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
           </PlannerColumn>
@@ -160,6 +167,13 @@ export default function Planner() {
                   schedule['SOPH_FALL'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SOPH_FALL'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="SOPH_WINTER">
@@ -168,6 +182,13 @@ export default function Planner() {
                   schedule['SOPH_WINTER'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SOPH_WINTER'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="SOPH_SPRING">
@@ -176,6 +197,13 @@ export default function Planner() {
                   schedule['SOPH_SPRING'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SOPH_SPRING'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
           </PlannerColumn>
@@ -186,6 +214,13 @@ export default function Planner() {
                   schedule['JUNIOR_FALL'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['JUNIOR_FALL'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="JUNIOR_WINTER">
@@ -194,6 +229,13 @@ export default function Planner() {
                   schedule['JUNIOR_WINTER'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['JUNIOR_WINTER'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="JUNIOR_SPRING">
@@ -202,6 +244,13 @@ export default function Planner() {
                   schedule['JUNIOR_SPRING'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['JUNIOR_SPRING'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
           </PlannerColumn>
@@ -212,6 +261,13 @@ export default function Planner() {
                   schedule['SENIOR_FALL'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SENIOR_FALL'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="SENIOR_WINTER">
@@ -220,6 +276,13 @@ export default function Planner() {
                   schedule['SENIOR_WINTER'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SENIOR_WINTER'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
             <Droppable id="SENIOR_SPRING">
@@ -228,6 +291,13 @@ export default function Planner() {
                   schedule['SENIOR_SPRING'].map((completeTitle) => (
                     <ClassBlock key={completeTitle} completeTitle={completeTitle} />
                   ))}
+                {blocks['SENIOR_SPRING'].map((itemId) => {
+                  return (
+                    <Draggable key={itemId} id={itemId}>
+                      <ClassBlock completeTitle={itemId} />
+                    </Draggable>
+                  );
+                })}
               </QuarterBlock>
             </Droppable>
           </PlannerColumn>
