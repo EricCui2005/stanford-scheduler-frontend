@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 
-export function Draggable(props) {
+export default function Draggable(props) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: props.id,
   });
@@ -12,8 +12,14 @@ export function Draggable(props) {
     : undefined;
 
   return (
-    <div className="debug h-4 w-4" ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <button
+      className="debug h-auto w-auto"
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+    >
       {props.children}
-    </div>
+    </button>
   );
 }
