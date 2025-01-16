@@ -12,7 +12,14 @@ export default function Planner() {
   // Function to solve and fetch schedule data
   const fetchData = async () => {
     try {
-      const result = await fetch('/api/solve');
+      const result = await fetch('/api/solve', {
+        method: 'POST', // Specify the method as POST
+        headers: {
+          'Content-Type': 'application/json', // Ensure the server knows you're sending JSON
+        },
+        body: JSON.stringify({}), // Include a body if the endpoint requires data
+      });
+      console.log(result);
       const data = await result.json();
       setSchedule(data['schedule']);
     } catch (error) {
